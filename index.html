@@ -72,14 +72,16 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-            filter: grayscale(100%) brightness(0.95);
+            filter: brightness(0.8);
         }
 
         .project-card:hover img {
             transform: scale(1.04);
-            filter: grayscale(0%) brightness(1);
+            filter: brightness(1);
         }
-
+        .group:hover img {
+            transform: scale(1.04);
+        }
         .project-card:hover h3 {
             color: var(--accent-neon);
         }
@@ -171,10 +173,9 @@
                 </div>
 
                 <div class="mt-24 pt-12 border-t border-zinc-100 flex flex-wrap gap-10 text-sm font-medium">
-                    <a href="#" class="hover:text-purple-600">LinkedIn</a>
-                    <a href="#" class="hover:text-purple-600">Instagram</a>
-                    <a href="#" class="hover:text-purple-600">GitHub</a>
-                    <a href="#" class="hover:text-purple-600">Makerworld</a>
+                    <a href="https://www.instagram.com/andy_twh_xr7?igsh=aGFsam03eWY3bTIz" class="hover:text-purple-600">Instagram</a>
+                    <a href="https://github.com/WhitebloodWind" class="hover:text-purple-600">GitHub</a>
+                    <a href="https://makerworld.com/en/@Phhixx112358" class="hover:text-purple-600">Makerworld</a>
                     <a id="contact-email" href="#" class="text-purple-600 hover:underline underline-offset-4">Email Me</a>
                 </div>
             </div>
@@ -259,6 +260,16 @@
                 },
                 {
                     title:"CAD Designing",
+                    image: "temp",
+                    link: "wip.html"
+                },
+                {
+                    title:"Turtlebot3 with ROS and ROS2",
+                    image: "temp",
+                    link: "wip.html"
+                },
+                {
+                    title:"Local AI - Hunyuan Model Generation",
                     image: "temp",
                     link: "wip.html"
                 }
