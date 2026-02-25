@@ -12,11 +12,11 @@
         :root {
             /* Theme Colors */
             --bg-color: #ffffff;
-            --text-main: #18181b;      /* Zinc 900 */
-            --text-muted: #71717a;     /* Zinc 500 */
-            --accent-neon: #a855f7;    /* Neon Purple / Lavender */
-            --accent-soft: #f5f3ff;    /* Light Lavender BG */
-            --border-color: #e4e4e7;   /* Zinc 200 */
+            --text-main: #18181b;
+            --text-muted: #71717a;
+            --accent-neon: #a855f7;
+            --accent-soft: #f5f3ff;
+            --border-color: #e4e4e7;
         }
 
         body {
@@ -106,11 +106,10 @@
             border: 2px solid white;
         }
 
-        /* Classy Username Styling - Updated to be more balanced */
         .username-style {
-            font-size: 0.85em; /* Increased from 0.6em */
+            font-size: 0.85em;
             text-transform: uppercase;
-            letter-spacing: 0.15em; /* Adjusted for better balance at larger size */
+            letter-spacing: 0.15em;
             color: var(--accent-neon);
             margin-left: 0.8rem;
             font-weight: 600;
@@ -128,10 +127,10 @@
                 Andy Tan <span class="username-style">Phhixx</span>
             </div>
             
-            <div class="flex space-x-8 text-sm ui-lowercase font-medium text-zinc-400">
-                <span id="tab-project" class="nav-link active">project</span>
-                <span id="tab-hobby" class="nav-link">hobby</span>
-                <span id="tab-info" class="nav-link">info</span>
+            <div class="flex space-x-8 text-sm font-medium text-zinc-400">
+                <span id="tab-project" class="nav-link active">Project</span>
+                <span id="tab-hobby" class="nav-link">Hobby</span>
+                <span id="tab-info" class="nav-link">Info</span>
             </div>
         </div>
     </nav>
@@ -142,7 +141,7 @@
         <!-- SECTION: project -->
         <section id="view-project">
             <header class="max-w-3xl mb-32">
-                <h1 id="hero-heading" class="text-4xl md:text-6xl font-light leading-tight ui-lowercase">
+                <h1 id="hero-heading" class="text-4xl md:text-6xl font-light leading-tight">
                     <!-- Injected by JS -->
                 </h1>
             </header>
@@ -155,8 +154,8 @@
         <!-- SECTION: hobby -->
         <section id="view-hobby" class="section-hidden">
             <header class="max-w-2xl mb-24">
-                <h1 class="text-4xl font-light ui-lowercase mb-4">Tinkering</h1>
-                <p class="text-zinc-500 ui-lowercase">Doing it for the love of the game</p>
+                <h1 class="text-4xl font-light mb-4">Tinkering</h1>
+                <p class="text-zinc-500">Doing it for the love of the game</p>
             </header>
             <div id="hobby-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- hobby items will appear here -->
@@ -166,16 +165,17 @@
         <!-- SECTION: INFO -->
         <section id="view-info" class="section-hidden">
             <div class="max-w-3xl">
-                <h1 class="text-4xl font-light ui-lowercase mb-16">Bio</h1>
-                <div id="bio-container" class="space-y-10 text-xl text-zinc-600 leading-relaxed font-light ui-lowercase">
+                <h1 class="text-4xl font-light mb-16">Bio</h1>
+                <div id="bio-container" class="space-y-10 text-xl text-zinc-600 leading-relaxed font-light">
                     <!-- Bio paragraphs injected here -->
                 </div>
 
-                <div class="mt-24 pt-12 border-t border-zinc-100 flex flex-wrap gap-10 text-sm ui-lowercase font-medium">
-                    <a href="#" class="hover:text-purple-600">linkedin</a>
-                    <a href="#" class="hover:text-purple-600">instagram</a>
-                    <a href="#" class="hover:text-purple-600">github</a>
-                    <a id="contact-email" href="#" class="text-purple-600 hover:underline underline-offset-4">email me</a>
+                <div class="mt-24 pt-12 border-t border-zinc-100 flex flex-wrap gap-10 text-sm font-medium">
+                    <a href="#" class="hover:text-purple-600">LinkedIn</a>
+                    <a href="#" class="hover:text-purple-600">Instagram</a>
+                    <a href="#" class="hover:text-purple-600">GitHub</a>
+                    <a href="#" class="hover:text-purple-600">Makerworld</a>
+                    <a id="contact-email" href="#" class="text-purple-600 hover:underline underline-offset-4">Email Me</a>
                 </div>
             </div>
         </section>
@@ -203,55 +203,76 @@
                     title: "Octogram: A Raspberry Pi Server",
                     tags: "Server / Fall 2025",
                     description: "Home server built on the foundation of Raspberry Pi, optimized to be power-efficient, sleek and robust.",
-                    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=1200",
-                    link: "#"
+                    image: "Sources/Octogram.jpg",
+                    link: "wip.html"
                 },
                 {
                     title: "Laser Engraver: CR-10S",
                     tags: "Upgrades/ Winter 2025",
                     description: "Repurposing a relic to give it a fresh new life, with laser precision.",
-                    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200",
-                    link: "#"
+                    image: "Sources/PenPlotter.png",
+                    link: "wip.html"
                 },
                 {
                     title: "The Nobara Experience",
                     tags: "Desktops / Summer 2025",
                     description: "Building up an AI workstation. Designed for aesthetics and efficiency.",
-                    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200",
-                    link: "#"
+                    image: "Sources/Linuxdesktop.jpg",
+                    link: "wip.html"
+                },
+                {
+                    title:"Emcee for STEAMCUP Malaysia 2025",
+                    tags: "Event / Fall 2025",
+                    description: "Master or ceremony for STEAMCUP Malaysia 2025, international robotics competition held in UM",
+                    image: "Sources/EmceeSolo.jpg",
+                    link: "wip.html"
+                },
+                {
+                    title:"3D-Printing Classes",
+                    tags: "Class / Winter 2025",
+                    description: "3D-Printing class with a focus on Robotics with TinkerCAD",
+                    image: "Sources/3dPrintingClass.jpg",
+                    link: "wip.html"
                 }
             ],
 
             experiments: [
                 {
-                    title: "3d Printing",
-                    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800"
+                    title: "3D Printing",
+                    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
+                    link: "wip.html"
                 },
                 {
                     title: "Building Desktops",
-                    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800"
+                    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
+                    link: "wip.html"
                 },
                 {
                     title: "Microcontrollers",
-                    image: "https://images.unsplash.com/photo-1594623730151-3ac60271ce3c?auto=format&fit=crop&q=80&w=800"
+                    image: "https://images.unsplash.com/photo-1594623730151-3ac60271ce3c?auto=format&fit=crop&q=80&w=800",
+                    link: "wip.html"
                 },
                 {
-                    title: "Producing Content",
-                    image: "https://images.unsplash.com/photo-1594623730151-3ac60271ce3c?auto=format&fit=crop&q=80&w=800"
+                    title: "Building",
+                    image: "https://images.unsplash.com/photo-1594623730151-3ac60271ce3c?auto=format&fit=crop&q=80&w=800",
+                    link: "wip.html"
+                },
+                {
+                    title:"CAD Designing",
+                    image: "temp",
+                    link: "wip.html"
                 }
             ],
 
             biography: [
-                "my name is andy. i am a creative technologist who sits at the intersection of aesthetic design and functional engineering.",
-                "i spend most of my time exploring how human beings interact with machines, aiming to make every digital touchpoint feel as satisfying as a mechanical button press.",
-                "currently, i'm based in my home studio, building tools for the next generation of creators."
+                "My name is Andy. I am a tech enthusiast, designer and engineer. I enjoy building, tinkering and reverse engineering.",
+                "I spend most of my time learning and exploring new fields, 3D-Printing, building computers, microcontroller, CAD designing and more.",
+                "Currently, I'm employed full time at Hong Qin Sdn Bhd as a Robotics Trainee, working on various aspects of robotics, programming and engineering."
             ]
         };
 
         function renderSite() {
-            // Updated brand name to include the username badge
             document.getElementById('brand-name').innerHTML = `${DATA.name} <span class="username-style">${DATA.username}</span>`;
-            
             document.getElementById('hero-heading').innerHTML = DATA.hero;
             document.getElementById('contact-email').innerText = DATA.email;
             document.getElementById('contact-email').href = `mailto:${DATA.email}`;
@@ -265,20 +286,20 @@
                     </div>
                     <div class="space-y-2">
                         <div class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">${p.tags}</div>
-                        <h3 class="text-2xl font-normal ui-lowercase transition-colors duration-300">${p.title}</h3>
-                        <p class="text-zinc-500 ui-lowercase text-base leading-relaxed max-w-sm">${p.description}</p>
+                        <h3 class="text-2xl font-normal transition-colors duration-300">${p.title}</h3>
+                        <p class="text-zinc-500 text-base leading-relaxed max-w-sm">${p.description}</p>
                     </div>
                 </a>
             `).join('');
 
             const hobbyGrid = document.getElementById('hobby-container');
             hobbyGrid.innerHTML = DATA.experiments.map(e => `
-                <div class="group cursor-crosshair">
+                <a href="${e.link}" class="group cursor-pointer block"> 
                     <div class="image-box aspect-square mb-4 border-none">
                         <img src="${e.image}" alt="${e.title}">
                     </div>
-                    <h3 class="text-xs font-semibold text-zinc-400 ui-lowercase group-hover:text-purple-500 transition-colors">${e.title}</h3>
-                </div>
+                    <h3 class="text-xs font-semibold text-zinc-400 group-hover:text-purple-500 transition-colors">${e.title}</h3>
+                </a>
             `).join('');
 
             const bioContainer = document.getElementById('bio-container');
