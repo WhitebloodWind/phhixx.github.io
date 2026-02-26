@@ -51,12 +51,6 @@
             height: 55vh; 
         }
 
-        .header-shrunk {
-            height: 0px !important; 
-            opacity: 0;
-            pointer-events: none;
-        }
-
         /* Nav text styling */
         #project-title-nav {
             opacity: 1;
@@ -157,14 +151,14 @@
             <a href="index.html#Profile" class="block text-2xl font-light hover:text-purple-600 transition-colors">Profile</a>
         </div>
         <div class="mt-20 pt-8 border-t border-zinc-100 text-[10px] uppercase tracking-widest text-zinc-400 font-bold">
-            Portfolio v1.0
+            Andy Tan 2026
         </div>
     </div>
 
     <!-- HERO BANNER -->
     <header id="main-header" class="relative w-full overflow-hidden bg-zinc-900">
         <img id="banner-image" 
-             src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=2000" 
+             src="Sources/OctogramBanner.png" 
              class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-60"
              alt="Project Banner">
     </header>
@@ -188,24 +182,25 @@
         </div>
 
         <!-- Picture Grid Sample -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-            <div class="media-placeholder aspect-[4/5]">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            <div class="media-placeholder aspect-[3/4]">
                 <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Process shot 1">
             </div>
-            <div class="media-placeholder aspect-[4/5] mt-12">
+            <div class="media-placeholder aspect-[3/4] mt-12">
                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" alt="Process shot 2">
             </div>
-        </div>
+        </div> -->
 
         <!-- Video Placeholder Sample -->
-        <div class="mb-24">
+        <!-- <div class="mb-24">
             <div class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-4">The Video</div>
             <div class="media-placeholder aspect-video">
-                <!-- REPLACE THE TEXT WITH THIS IFRAME -->
+
                 <iframe width=100% height=100% src="https://www.youtube.com/embed/PXSdy3NluWE?si=GrHrRhYU_DqtUzcR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <a href="LINKHOLDER" target="_blank" class="mt-6 text-zinc-500 font-light italic text-sm block hover:text-purple-500 transition-colors">LINKHOLDER</a>
-        </div>
+        </div> -->
+
 
         <!-- Detailed Text Body -->
         <div class="prose prose-zinc lg:prose-xl font-light text-zinc-600 max-w-none space-y-8">
@@ -223,7 +218,6 @@
         <!-- Footer Navigation -->
         <div class="mt-32 pt-12 border-t border-zinc-100 flex justify-between items-center">
             <a href="index.html" class="text-sm font-medium hover:text-purple-600 transition-colors">← Back to Overview</a>
-            <div class="text-[10px] uppercase tracking-widest text-zinc-300 font-bold">Project 01 / 03</div>
         </div>
     </main>
 
@@ -234,10 +228,8 @@
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.classList.add('header-shrunk');
                 topNav.classList.add('nav-scrolled');
             } else {
-                header.classList.remove('header-shrunk');
                 topNav.classList.remove('nav-scrolled');
             }
         });
