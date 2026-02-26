@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octogram | Andy Tan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #18181b;
+            --accent-neon: #a855f7;
+            --amethyst: #9966cc; /* Solid Amethyst Tint */
+            /* Lower opacity (0.65) for a more prominent translucent 'tint' effect */
+            --amethyst-glass: rgba(153, 102, 204, 0.65); 
+            --border-color: #e4e4e7;
+            --nav-height: 80px; 
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            padding-top: var(--nav-height); 
+        }
+
+        /* Navigation Bar - Solid Amethyst at start */
+        #top-nav {
+            height: var(--nav-height);
+            background-color: var(--amethyst);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease; /* Snappier transition */
+        }
+
+        /* Prominent Translucent state when scrolling */
+        .nav-scrolled {
+            background-color: var(--amethyst-glass) !important;
+            backdrop-filter: blur(20px); /* Increased blur for a deeper frosted effect */
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Banner Logic */
+        header {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 55vh; 
+        }
+
+        .header-shrunk {
+            height: 0px !important; 
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Nav text styling */
+        #project-title-nav {
+            opacity: 1;
+            transform: translateY(0);
+            color: white; 
+        }
+
+        /* Hamburger bars are white on amethyst background */
+        .hamburger-bar {
+            background-color: white !important;
+        }
+
+        /* Side Panel Animation */
+        .side-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 300px;
+            background: white;
+            z-index: 70;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+        }
+
+        .panel-open {
+            transform: translateX(0);
+        }
+
+        /* Backdrop */
+        .backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(2px);
+            z-index: 65;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .backdrop-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Content Placeholders */
+        .media-placeholder {
+            background-color: #f4f4f5;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a1a1aa;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            overflow: hidden;
+        }
+
+        .media-placeholder img, .media-placeholder video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR & HAMBURGER -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 flex justify-between items-center" id="top-nav">
+        <!-- Persistent Title with Black Separator -->
+        <div id="project-title-nav" class="text-sm font-semibold tracking-tight transition-all duration-500">
+            Octogram 
+            <span class="text-black mx-3 font-normal scale-125 inline-block">|</span> 
+            <span class="text-zinc-200 font-medium">Project / Fall 2024</span>
+        </div>
+
+        <!-- Hamburger Toggle -->
+        <button id="menu-btn" class="group focus:outline-none z-[80]">
+            <div class="flex flex-col gap-1.5 items-end">
+                <span class="w-6 h-0.5 transition-all hamburger-bar"></span>
+                <span class="w-4 h-0.5 transition-all group-hover:w-6 hamburger-bar"></span>
+            </div>
+        </button>
+    </nav>
+
+    <!-- BACKDROP (Click to close) -->
+    <div id="backdrop" class="backdrop"></div>
+
+    <!-- SIDE PANEL MENU -->
+    <div id="side-panel" class="side-panel flex flex-col justify-center px-10">
+        <div class="space-y-6">
+            <a href="index.html#project" class="block text-2xl font-light hover:text-purple-600 transition-colors">Project</a>
+            <a href="index.html#pursuits" class="block text-2xl font-light hover:text-purple-600 transition-colors">Pursuits</a>
+            <a href="index.html#Profile" class="block text-2xl font-light hover:text-purple-600 transition-colors">Profile</a>
+        </div>
+        <div class="mt-20 pt-8 border-t border-zinc-100 text-[10px] uppercase tracking-widest text-zinc-400 font-bold">
+            Portfolio v1.0
+        </div>
+    </div>
+
+    <!-- HERO BANNER -->
+    <header id="main-header" class="relative w-full overflow-hidden bg-zinc-900">
+        <img id="banner-image" 
+             src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=2000" 
+             class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-60"
+             alt="Project Banner">
+    </header>
+
+    <!-- CONTENT SECTION -->
+    <main class="max-w-4xl mx-auto px-6 pt-4 pb-24">
+        
+        <div class="mb-16">
+            <h1 class="text-5xl md:text-7xl font-light tracking-tight mb-4">
+                Octogram
+            </h1>
+            <div class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">Project / Fall 2024</div>
+        </div>
+
+        <!-- Intro / Caption -->
+        <div class="mb-24">
+            <div class="text-[10px] uppercase tracking-widest text-purple-500 font-bold mb-4">The Brief</div>
+            <p class="text-2xl md:text-3xl text-zinc-600 leading-relaxed font-light">
+                This project explored the intersection of high-fidelity audio processing and minimalist industrial hardware. The goal was to build a server that felt as robust as it performed.
+            </p>
+        </div>
+
+        <!-- Picture Grid Sample -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+            <div class="media-placeholder aspect-[4/5]">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" alt="Process shot 1">
+            </div>
+            <div class="media-placeholder aspect-[4/5] mt-12">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" alt="Process shot 2">
+            </div>
+        </div>
+
+        <!-- Video Placeholder Sample -->
+        <div class="mb-24">
+            <div class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold mb-4">Interaction Demo</div>
+            <div class="media-placeholder aspect-video">
+                Video Component Placeholder
+            </div>
+            <p class="mt-6 text-zinc-500 font-light italic text-sm">Demonstration of the mechanical switch responsiveness during heavy CPU load.</p>
+        </div>
+
+        <!-- Detailed Text Body -->
+        <div class="prose prose-zinc lg:prose-xl font-light text-zinc-600 max-w-none space-y-8">
+            <p>
+                Developing the Octogram required a deep dive into the Raspberry Pi kernel to optimize power consumption without sacrificing the throughput needed for multi-track audio playback. 
+            </p>
+            <p>
+                The chassis was milled from a single block of aerospace-grade aluminum, ensuring that heat dissipation occurred naturally through the body of the device, removing the need for noisy mechanical fans.
+            </p>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="mt-32 pt-12 border-t border-zinc-100 flex justify-between items-center">
+            <a href="index.html" class="text-sm font-medium hover:text-purple-600 transition-colors">← Back to Overview</a>
+            <div class="text-[10px] uppercase tracking-widest text-zinc-300 font-bold">Project 01 / 03</div>
+        </div>
+    </main>
+
+    <script>
+        // Scroll Logic: Shrinking Header and Translucent Nav
+        const header = document.getElementById('main-header');
+        const topNav = document.getElementById('top-nav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-shrunk');
+                topNav.classList.add('nav-scrolled');
+            } else {
+                header.classList.remove('header-shrunk');
+                topNav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Menu Logic: Side Panel and Backdrop
+        const menuBtn = document.getElementById('menu-btn');
+        const sidePanel = document.getElementById('side-panel');
+        const backdrop = document.getElementById('backdrop');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                sidePanel.classList.add('panel-open');
+                backdrop.classList.add('backdrop-active');
+                // Hamburger icon to X
+                menuBtn.querySelector('span:first-child').style.transform = 'translateY(4px) rotate(45deg)';
+                menuBtn.querySelector('span:last-child').style.transform = 'translateY(-4px) rotate(-45deg)';
+                menuBtn.querySelector('span:last-child').style.width = '24px';
+            } else {
+                sidePanel.classList.remove('panel-open');
+                backdrop.classList.remove('backdrop-active');
+                // Hamburger icon back
+                menuBtn.querySelector('span:first-child').style.transform = 'none';
+                menuBtn.querySelector('span:last-child').style.transform = 'none';
+                menuBtn.querySelector('span:last-child').style.width = '16px';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        backdrop.addEventListener('click', toggleMenu); // Click outside to close
+    </script>
+</body>
+</html>

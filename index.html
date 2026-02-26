@@ -131,8 +131,8 @@
             
             <div class="flex space-x-8 text-sm font-medium text-zinc-400">
                 <span id="tab-project" class="nav-link active">Project</span>
-                <span id="tab-hobby" class="nav-link">Hobby</span>
-                <span id="tab-info" class="nav-link">Info</span>
+                <span id="tab-Pursuits" class="nav-link">Pursuits</span>
+                <span id="tab-Profile" class="nav-link">Profile</span>
             </div>
         </div>
     </nav>
@@ -153,19 +153,19 @@
             </div>
         </section>
 
-        <!-- SECTION: hobby -->
-        <section id="view-hobby" class="section-hidden">
+        <!-- SECTION: Pursuits -->
+        <section id="view-Pursuits" class="section-hidden">
             <header class="max-w-2xl mb-24">
                 <h1 class="text-4xl font-light mb-4">Tinkering</h1>
                 <p class="text-zinc-500">Doing it for the love of the game</p>
             </header>
-            <div id="hobby-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- hobby items will appear here -->
+            <div id="Pursuits-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pursuits items will appear here -->
             </div>
         </section>
 
-        <!-- SECTION: INFO -->
-        <section id="view-info" class="section-hidden">
+        <!-- SECTION: Profile -->
+        <section id="view-Profile" class="section-hidden">
             <div class="max-w-3xl">
                 <h1 class="text-4xl font-light mb-16">Bio</h1>
                 <div id="bio-container" class="space-y-10 text-xl text-zinc-600 leading-relaxed font-light">
@@ -205,7 +205,7 @@
                     tags: "Server / Fall 2025",
                     description: "Home server built on the foundation of Raspberry Pi, optimized to be power-efficient, sleek and robust.",
                     image: "Sources/Octogram.jpg",
-                    link: "wip.html"
+                    link: "octogram.html"
                 },
                 {
                     title: "Laser Engraver: CR-10S",
@@ -224,7 +224,7 @@
                 {
                     title:"Emcee for STEAMCUP Malaysia 2025",
                     tags: "Event / Fall 2025",
-                    description: "Master or ceremony for STEAMCUP Malaysia 2025, international robotics competition held in UM",
+                    description: "Master or ceremony for STEAMCUP Malaysia 2025, international robotics competition held in Universiti Malaya",
                     image: "Sources/EmceeSolo.jpg",
                     link: "wip.html"
                 },
@@ -234,42 +234,49 @@
                     description: "3D-Printing class with a focus on Robotics with TinkerCAD",
                     image: "Sources/3dPrintingClass.jpg",
                     link: "wip.html"
+                },
+                {
+                    title:"Turtlebot3 Training",
+                    tags: "Training / Winter 2025",
+                    description: "Assistant instructor on Turtlebot3 with ROS2 and ROS",
+                    image: "Sources/Turtlebot3Training.jpeg",
+                    link: "wip.html"
                 }
             ],
 
             experiments: [
                 {
                     title: "3D Printing",
-                    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800",
+                    image: "Sources/3dPrinting.png",
                     link: "wip.html"
                 },
                 {
                     title: "Building Desktops",
-                    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
-                    link: "wip.html"
-                },
-                {
-                    title: "Microcontrollers",
-                    image: "https://images.unsplash.com/photo-1594623730151-3ac60271ce3c?auto=format&fit=crop&q=80&w=800",
+                    image: "Sources/BuildPcs.png",
                     link: "wip.html"
                 },
                 {
                     title: "Building",
-                    image: "https://images.unsplash.com/photo-1594623730151-3ac60271ce3c?auto=format&fit=crop&q=80&w=800",
+                    image: "Sources/Builds.png",
                     link: "wip.html"
                 },
                 {
                     title:"CAD Designing",
-                    image: "temp",
+                    image: "Sources/FreeCAD.png",
                     link: "wip.html"
                 },
                 {
                     title:"Turtlebot3 with ROS and ROS2",
-                    image: "temp",
+                    image: "Sources/Turtlebot3.png",
                     link: "wip.html"
                 },
                 {
                     title:"Local AI - Hunyuan Model Generation",
+                    image: "temp",
+                    link: "wip.html"
+                },
+                {
+                    title:"Robotis Humanoid Robots",
                     image: "temp",
                     link: "wip.html"
                 }
@@ -303,8 +310,8 @@
                 </a>
             `).join('');
 
-            const hobbyGrid = document.getElementById('hobby-container');
-            hobbyGrid.innerHTML = DATA.experiments.map(e => `
+            const PursuitsGrid = document.getElementById('Pursuits-container');
+            PursuitsGrid.innerHTML = DATA.experiments.map(e => `
                 <a href="${e.link}" class="group cursor-pointer block"> 
                     <div class="image-box aspect-square mb-4 border-none">
                         <img src="${e.image}" alt="${e.title}">
@@ -317,28 +324,45 @@
             bioContainer.innerHTML = DATA.biography.map(text => `<p>${text}</p>`).join('');
         }
 
-        function handleNavigation() {
-            const tabs = ['project', 'hobby', 'info'];
+        // 1. Create the standalone function
+        function switchTab(tabId) {
+            // Note: Use the exact Case used in your IDs ('project', 'Pursuits', 'Profile')
+            const tabs = ['project', 'Pursuits', 'Profile'];
             
+            tabs.forEach(t => {
+                document.getElementById(`tab-${t}`).classList.remove('active');
+                document.getElementById(`view-${t}`).classList.add('section-hidden');
+            });
+
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            document.getElementById(`view-${tabId}`).classList.remove('section-hidden');
+        }
+
+        // 2. Update handleNavigation to use that function
+        function handleNavigation() {
+            const tabs = ['project', 'Pursuits', 'Profile'];
             tabs.forEach(tabId => {
-                const trigger = document.getElementById(`tab-${tabId}`);
-                trigger.addEventListener('click', () => {
-                    tabs.forEach(t => document.getElementById(`tab-${t}`).classList.remove('active'));
-                    trigger.classList.add('active');
-                    tabs.forEach(t => document.getElementById(`view-${t}`).classList.add('section-hidden'));
-                    document.getElementById(`view-${tabId}`).classList.remove('section-hidden');
+                document.getElementById(`tab-${tabId}`).addEventListener('click', () => {
+                    switchTab(tabId);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             });
 
             document.getElementById('brand-name').addEventListener('click', () => {
-                document.getElementById('tab-project').click();
+                switchTab('project');
             });
         }
 
+        // 3. Update the loader to match your ID cases
         window.addEventListener('DOMContentLoaded', () => {
             renderSite();
             handleNavigation();
+            
+            const hash = window.location.hash.replace('#', '');
+            
+            // Manual check to match your exact Capitalized IDs
+            if (hash.toLowerCase() === 'pursuits') switchTab('Pursuits');
+            if (hash.toLowerCase() === 'profile') switchTab('Profile');
         });
     </script>
 </body>
